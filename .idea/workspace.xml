@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1cc25d5-ed88-4737-b0d0-209fb682fcf3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/general/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/general/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,12 +76,20 @@
       <option name="project" value="LOCAL" />
       <updated>1714196087625</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="models created">
+      <created>1714198411114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714198411114</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="app created" />
-    <option name="LAST_COMMIT_MESSAGE" value="app created" />
+    <MESSAGE value="models created" />
+    <option name="LAST_COMMIT_MESSAGE" value="models created" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
