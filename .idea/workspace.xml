@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1cc25d5-ed88-4737-b0d0-209fb682fcf3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/general/bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/general/keys.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/migrations/0002_junior_number_junior_tg_id_mentor_number_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/signals.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +118,21 @@
       <option name="project" value="LOCAL" />
       <updated>1714203262285</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="views added">
+      <created>1714211193091</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1714211193091</updated>
+    </task>
+    <task id="LOCAL-00007" summary="views added">
+      <created>1714211423095</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1714211423095</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -116,7 +140,8 @@
     <MESSAGE value="app created" />
     <MESSAGE value="models created" />
     <MESSAGE value="admin created and submitted" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin created and submitted" />
+    <MESSAGE value="views added" />
+    <option name="LAST_COMMIT_MESSAGE" value="views added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

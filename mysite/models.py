@@ -19,7 +19,7 @@ class Junior(TimeStampedMixin):
     last_name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.ImageField(upload_to='media', null=True, blank=True)
     tg_id = models.IntegerField(null=True,blank=True)
-    number = models.CharField(null=True,blank=True)
+    number = models.CharField(max_length=20,null=True,blank=True)
     field = models.ForeignKey(Field, on_delete=models.CASCADE)
     technologies = models.CharField(max_length=128, null=True, blank=True)
 
@@ -38,7 +38,7 @@ class Mentor(TimeStampedMixin):
     image_url = models.ImageField(upload_to='media', null=True, blank=True)
     field = models.ForeignKey(Field, on_delete=models.CASCADE)
     tg_id = models.IntegerField(null=True, blank=True)
-    number = models.CharField(null=True, blank=True)
+    number = models.CharField(max_length=20,null=True, blank=True)
     technologies = models.CharField(max_length=128, null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
 
@@ -160,3 +160,24 @@ class Article(TimeStampedMixin):
 
     def __str__(self):
         return self.text
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+from general.bot import send_telegram_message
+from general.keys import TOKEN
+from mysite.models import Junior, Vacancy
+
+
+@receiver(post_save, sender=Vacancy)
+def send_notification(sender, instance, created, **kwargs):
+    if created:
+        field_id = instance.field.id
+        juniors = Junior.objects.filter(field_id=field_id)
+        for junior in juniors:
+            full_text = f"{instance.name}\n" \
+                        f"{instance.text}\n" \
+                        f"{instance.technologies}"
+            send_telegram_message(bot_token=TOKEN,chat_id=junior.tg_id,message_text=full_text)
+
+

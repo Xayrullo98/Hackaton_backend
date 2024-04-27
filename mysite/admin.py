@@ -68,4 +68,4 @@ class AdminArticle(admin.ModelAdmin):
     list_display = ['id', 'text', 'mentor', 'rating', ]
 
 
-admin.site.register(Referral, AdminReferral)
+admin.site.register(Article, AdminArticle)
