@@ -18,6 +18,8 @@ class Junior(TimeStampedMixin):
     name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.ImageField(upload_to='media', null=True, blank=True)
+    tg_id = models.IntegerField(null=True,blank=True)
+    number = models.CharField(null=True,blank=True)
     field = models.ForeignKey(Field, on_delete=models.CASCADE)
     technologies = models.CharField(max_length=128, null=True, blank=True)
 
@@ -35,6 +37,8 @@ class Mentor(TimeStampedMixin):
     last_name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.ImageField(upload_to='media', null=True, blank=True)
     field = models.ForeignKey(Field, on_delete=models.CASCADE)
+    tg_id = models.IntegerField(null=True, blank=True)
+    number = models.CharField(null=True, blank=True)
     technologies = models.CharField(max_length=128, null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
 
