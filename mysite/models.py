@@ -115,7 +115,7 @@ class Project(TimeStampedMixin):
     text = models.TextField(null=True, blank=True)
     field = models.ForeignKey(Field, on_delete=models.CASCADE)
     deadline = models.DateTimeField(null=True, blank=True)
-    price = models.IntegerField(null=True, blank=True)
+    price = models.IntegerField(null=True, blank=True,default=0)
     requirements = models.TextField(null=True, blank=True)
 
     class Meta:
