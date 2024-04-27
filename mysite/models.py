@@ -18,7 +18,7 @@ class Junior(TimeStampedMixin):
     name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.ImageField(upload_to='media', null=True, blank=True)
-    field_id = models.ForeignKey(Field, on_delete=models.CASCADE)
+    field = models.ForeignKey(Field, on_delete=models.CASCADE)
     technologies = models.CharField(max_length=128, null=True, blank=True)
 
     class Meta:
@@ -34,8 +34,9 @@ class Mentor(TimeStampedMixin):
     name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255, null=True, blank=True)
     image_url = models.ImageField(upload_to='media', null=True, blank=True)
-    field_id = models.ForeignKey(Field, on_delete=models.CASCADE)
+    field = models.ForeignKey(Field, on_delete=models.CASCADE)
     technologies = models.CharField(max_length=128, null=True, blank=True)
+    comment = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Mentor"
@@ -49,7 +50,7 @@ class Mentor(TimeStampedMixin):
 class Vacancy(TimeStampedMixin):
     name = models.CharField(max_length=255)
     text = models.TextField(null=True, blank=True)
-    field_id = models.ForeignKey(Field, on_delete=models.CASCADE)
+    field = models.ForeignKey(Field, on_delete=models.CASCADE)
     technologies = models.CharField(max_length=128, null=True, blank=True)
 
     class Meta:
@@ -65,8 +66,8 @@ class Course(TimeStampedMixin):
     name = models.CharField(max_length=255)
     text = models.TextField(null=True, blank=True)
     video_url = models.CharField(max_length=255, null=True, blank=True)
-    field_id = models.ForeignKey(Field, on_delete=models.CASCADE)
-    mentor_id = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    field = models.ForeignKey(Field, on_delete=models.CASCADE)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
     technologies = models.CharField(max_length=128, null=True, blank=True)
 
     class Meta:
@@ -82,7 +83,7 @@ class Event(TimeStampedMixin):
     name = models.CharField(max_length=255)
     text = models.TextField(null=True, blank=True)
     video_url = models.CharField(max_length=255, null=True, blank=True)
-    picture = models.ImageField(upload_to='media', on_delete=models.CASCADE)
+    picture = models.ImageField(upload_to='media')
 
     class Meta:
         verbose_name = "Event"
@@ -95,9 +96,9 @@ class Event(TimeStampedMixin):
 
 class Comment(TimeStampedMixin):
     text = models.TextField(null=True, blank=True)
-    mentor_id = models.IntegerField(null=True, blank=True)
-    junior_id = models.IntegerField(null=True, blank=True)
-    event_id = models.IntegerField(null=True, blank=True)
+    mentor = models.IntegerField(null=True, blank=True)
+    junior = models.IntegerField(null=True, blank=True)
+    event = models.IntegerField(null=True, blank=True)
     source = models.CharField(max_length=30)
 
     class Meta:
@@ -112,10 +113,10 @@ class Comment(TimeStampedMixin):
 class Project(TimeStampedMixin):
     title = models.CharField(max_length=255)
     text = models.TextField(null=True, blank=True)
-    field_id = models.ForeignKey(Field, on_delete=models.CASCADE)
+    field = models.ForeignKey(Field, on_delete=models.CASCADE)
     deadline = models.DateTimeField(null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
-    requirments = models.TextField(null=True, blank=True)
+    requirements = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "Project"
@@ -128,15 +129,30 @@ class Project(TimeStampedMixin):
 
 class Referral(TimeStampedMixin):
     text = models.TextField(null=True, blank=True)
-    mentor_id = models.ForeignKey(Mentor, on_delete=models.CASCADE)
-    junior_id = models.ForeignKey(Junior, on_delete=models.CASCADE)
-    vacancy_id = models.ForeignKey(Vacancy, on_delete=models.CASCADE, null=True, blank=True)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    junior = models.ForeignKey(Junior, on_delete=models.CASCADE)
+    vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE, null=True, blank=True)
     status = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "Referral"
         verbose_name_plural = "Referrals"
         db_table = "referral"
+
+    def __str__(self):
+        return self.text
+
+
+class Article(TimeStampedMixin):
+    text = models.TextField(null=True, blank=True)
+    mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE)
+    picture = models.ImageField(upload_to='media', null=True, blank=True)
+    rating = models.IntegerField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Article"
+        verbose_name_plural = "Articles"
+        db_table = "article"
 
     def __str__(self):
         return self.text
